@@ -1,14 +1,21 @@
 <template>
-    <ul>
-        <li v-for="task in tasks" :key="task._id">
-            {{task.title}}
-        </li>
-    </ul>
+    <div class="tasks">
+        <ul>
+            <li
+                v-for="task in tasks"
+                :key="task._id"
+                class="task"
+                @click="this.$router.push(`/tasks/${task._id}`)"
+            >
+                {{ task.title }}
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { getTask } from "@/api/TaskService";
+import { getTasks } from "@/api/TaskService";
 import { Task } from "@/interface/Task";
 
 export default defineComponent({
@@ -19,7 +26,7 @@ export default defineComponent({
     },
     methods: {
         async loadTasks() {
-            const res = await getTask();
+            const res = await getTasks();
             this.tasks = res.data;
         },
     },
