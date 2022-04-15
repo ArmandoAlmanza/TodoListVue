@@ -21,12 +21,24 @@
         <form @submit.prevent="handleUpdate()" class="task-form container">
             <fieldset>
                 <legend>Update task: {{ currentTask.title }}</legend>
+                <label for="title">Enter the name: </label>
 
-                <input class="title" type="text" v-model="currentTask.title" />
+                <input
+                    class="title"
+                    name="title"
+                    type="text"
+                    v-model="currentTask.title"
+                    placeholder="Enter a title..."
+                />
+
+                <label for="desc">Enter a description: </label>
                 <textarea
+                    name="desc"
                     class="description"
                     rows="3"
+                    placeholder="Enter a description..."
                     v-model="currentTask.description"
+                    maxlength="225"
                 ></textarea>
                 <div class="btns container">
                     <button class="btn btn-save">
@@ -65,7 +77,7 @@ export default defineComponent({
         async hanldeDelete() {
             if (typeof this.$route.params.id === "string") {
                 await deleteTask(this.$route.params.id);
-                console.log("Ya se borro we");
+                alert("Task deleted")
                 this.$router.push({ name: "tasks" });
             }
         },

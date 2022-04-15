@@ -3,12 +3,31 @@
     margin: 1rem 0;
 }
 
-.change {
-    padding: 3rem 1rem;
+@include tablet {
+    .change {
+        @include grid(2, 2rem);
+    }
 }
 
-@include tablet {
-    .change{
-		@include grid(2, 2rem);
-	}
+fieldset{
+	margin: 3rem 1rem;
+}
+
+legend {
+    font-size: 1.8rem;
+}
+label {
+    display: block;
+    font-size: 2rem;
+	margin: 1rem 0.5rem;
+}
+
+input, textarea {
+    padding: 1rem;
+    border: none;
+    font-size: $normal;
+	width: 95%;
+	border-radius: 15px;
+    border: 1px solid #c6d57e;
+	resize: none;
 }
