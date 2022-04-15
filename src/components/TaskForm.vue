@@ -1,14 +1,28 @@
 <template>
-    <form @submit.prevent="saveTask()">
-        <input type="text" placeholder="Write a title" v-model="task.title" />
+    <h1 class="task-detail-title">The creator 3000</h1>
 
-        <textarea
-            placeholder="Write a task"
-            rows="4"
-            v-model="task.description"
-        ></textarea>
+    <form @submit.prevent="saveTask()" class="task-form container">
+        <fieldset>
+            <legend>Create a new Task</legend>
+            <input
+                class="title"
+                type="text"
+                placeholder="Write a title"
+                v-model="task.title"
+            />
 
-        <button>Save</button>
+            <textarea
+                class="description"
+                placeholder="Write a task"
+                rows="4"
+                v-model="task.description"
+            ></textarea>
+
+            <button class="btn btn-save">
+                <span class="text">Save</span>
+                <span class="icon save"> ✓ </span>
+            </button>
+        </fieldset>
     </form>
 </template>
 

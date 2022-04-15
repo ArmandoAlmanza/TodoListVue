@@ -1,14 +1,47 @@
 <template>
-    <h1>Task details we</h1>
+    <h1 class="task-detail-title">Current Task</h1>
+    <div class="change container">
+        <div class="card container">
+            <div class="tools">
+                <div class="circle">
+                    <span class="red box"></span>
+                </div>
+                <div class="circle">
+                    <span class="yellow box"></span>
+                </div>
+                <div class="circle">
+                    <span class="green box"></span>
+                </div>
+            </div>
+            <div class="card__content">
+                <h3 class="card-hedaer">{{ currentTask.title }}</h3>
+                <p class="card-body">{{ currentTask.description }}</p>
+            </div>
+        </div>
+        <form @submit.prevent="handleUpdate()" class="task-form container">
+            <fieldset>
+                <legend>Update task: {{ currentTask.title }}</legend>
 
-    <form @submit.prevent="handleUpdate()">
-        <input type="text" v-model="currentTask.title" />
-        <textarea rows="3" v-model="currentTask.description"></textarea>
+                <input class="title" type="text" v-model="currentTask.title" />
+                <textarea
+                    class="description"
+                    rows="3"
+                    v-model="currentTask.description"
+                ></textarea>
+                <div class="btns container">
+                    <button class="btn btn-save">
+                        <span class="text">Update</span>
+                        <span class="icon save">✓ </span>
+                    </button>
 
-        <button>Update</button>
-    </form>
-
-    <button @click="hanldeDelete()">Delete</button>
+                    <button @click="hanldeDelete()" class="btn btn-delete">
+                        <span class="text">Delete</span>
+                        <span class="icon delete"> X </span>
+                    </button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
 </template>
 
 <script lang="ts">
@@ -25,6 +58,7 @@ export default defineComponent({
         async handleUpdate() {
             if (typeof this.$route.params.id === "string") {
                 await updateTask(this.$route.params.id, this.currentTask);
+                this.$router.push({ name: "tasks" });
                 console.log("si se updateo we");
             }
         },

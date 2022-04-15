@@ -1,0 +1,26 @@
+.task-list {
+    border-style: solid;
+    border-color: $blac;
+    border-width: 0.2rem;
+}
+.task {
+    padding: 0 1rem;
+    border-bottom: 2px solid $header-color;
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    font-size: 2.2rem;
+    font-family: $normal;
+    margin: 1rem 0 1rem 0;
+    transition: all 0.3s ease-in-out;
+    height: auto;
+    &:hover {
+        cursor: pointer;
+		color: $task-alter;
+        border-bottom: 2px solid $purple;
+    }
+    &:last-of-type {
+        margin: 1rem 0 0 0;
+        border: 0;
+    }
+}

@@ -1,11 +1,9 @@
 <template>
     <header class="site-header">
-        <h1>Todo List</h1>
+        <h1 class="logo">Todo List</h1>
         <nav class="navbar">
-            <ul>
-                <router-link to="/"> Tasks</router-link>
-                <router-link to="/tasks/new"> Create Tasks</router-link>
-            </ul>
+            <router-link to="/"> Tasks</router-link>
+            <router-link to="/tasks/new"> Create Tasks</router-link>
         </nav>
     </header>
 </template>

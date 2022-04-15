@@ -1,0 +1,14 @@
+.task-detail-title {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.change {
+    padding: 3rem 1rem;
+}
+
+@include tablet {
+    .change{
+		@include grid(2, 2rem);
+	}
+}

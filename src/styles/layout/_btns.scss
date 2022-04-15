@@ -1,0 +1,109 @@
+.btns {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+@include tablet {
+    .btns {
+        flex-direction: row;
+    }
+}
+.btn {
+    width: 15rem;
+    height: 5rem;
+    display: inline-block;
+    margin: 2rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        cursor: pointer;
+        .text {
+            display: none;
+        }
+    }
+
+    & span {
+        transition: 200ms;
+    }
+
+    &.btn-delete {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        background-color: #bb6464;
+        &:hover {
+            background-color: #ff7878;
+        }
+    }
+
+    &.btn-update {
+        display: flex;
+        align-items: center;
+        background-color: #8fbdd3;
+        &:hover {
+            background-color: #9ad0ec;
+        }
+    }
+
+	&.btn-save {
+        display: flex;
+        align-items: center;
+        background-color: #C6D57E;
+        &:hover {
+            background-color: #D3E4CD;
+        }
+    }
+
+    &:hover .icon {
+        width: 150px;
+        border-left: none;
+        transform: translateX(0);
+        &.update {
+            color: #1572a1;
+        }
+        &.delete {
+            color: #c41b1b;
+        }
+		&.save{
+			color: #99A799;
+		}
+    }
+    &:focus {
+        outline: none;
+    }
+
+    &:active .icon svg {
+        transform: scale(0.8);
+    }
+}
+
+.text {
+    transform: translateX(35px);
+    color: white;
+    font-weight: bold;
+}
+.icon {
+    position: absolute;
+    transform: translateX(110px);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: $white;
+    &.update {
+        border-left: 1px solid #1572a1;
+    }
+	&.save{
+        border-left: 1px solid #99A799;
+	}
+    &.delete {
+        border-left: 1px solid #c41b1b;
+    }
+}

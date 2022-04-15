@@ -26,13 +26,16 @@ img {
     max-width: 100%;
 }
 ul {
-    text-decoration: none;
+    list-style: none;
     margin: 0;
+    padding: 0;
 }
-li {
-    margin: 0;
-}
+
 a {
     text-decoration: none;
     font-family: $titles;
+}
+
+h1{
+    margin: 0;
 }

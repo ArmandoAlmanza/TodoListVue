@@ -1,6 +1,6 @@
 <template>
-    <div class="tasks">
-        <ul>
+    <div class="tasks container">
+        <ul class="task-list">
             <li
                 v-for="task in tasks"
                 :key="task._id"
@@ -8,6 +8,7 @@
                 @click="this.$router.push(`/tasks/${task._id}`)"
             >
                 {{ task.title }}
+                
             </li>
         </ul>
     </div>
